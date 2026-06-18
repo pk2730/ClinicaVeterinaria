@@ -1,11 +1,11 @@
 package PetShop;
 
-public class Animal {
+public abstract class Animal {
 	
 	    protected String nome;
 	    protected int idade;
-	    protected String dono;
-
+	    public  Cliente dono;
+   protected  boolean faminto;
 	    public static int totalAnimais = 0;
 
 	    public Animal(String nome, int idade) {
@@ -30,16 +30,9 @@ public class Animal {
 	        this.idade = idade;
 	    }
 
-	    public String getDono() {
-	        return dono;
-	    }
+	   
 
-	    public void setDono(String dono) {
-	        this.dono = dono;
-	    }
-
-	    public void emitirSom() {
-	        System.out.println("O animal emite um som");
-	    }
+	    public abstract void emitirSom();
+	      
 	}
 
