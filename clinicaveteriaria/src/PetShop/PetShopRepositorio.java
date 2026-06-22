@@ -27,7 +27,7 @@ public class PetShopRepositorio {
 			if (pet.getNome().equalsIgnoreCase(nome)) {
 				animais.set(i, novoPet);
 				return true;
-			}
+			}       // oiiiiii
 		}
 		return false;
 	}
