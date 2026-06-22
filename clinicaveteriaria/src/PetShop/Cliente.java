@@ -1,8 +1,8 @@
 package PetShop;
 
 public class Cliente {
-   String nome;
-   String numero;
+ protected  String nome;
+  protected String numero;
    void exibirInfo() {
 	   System.out.println("nome : " + nome);
 	   System.out.println("numero : " + numero);

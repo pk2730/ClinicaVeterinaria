@@ -21,6 +21,14 @@ public class Gato extends Animal {
     public void emitirSom() {
         System.out.println("MIAU!");
     }
+
+	@Override
+	public String exibirDados() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
 
 
