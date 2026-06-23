@@ -27,7 +27,8 @@ public class PetShopRepositorio {
 			if (pet.getNome().equalsIgnoreCase(nome)) {
 				animais.set(i, novoPet);
 				return true;
-			}       // oiiiiii
+
+			}
 		}
 		return false;
 	}
@@ -42,13 +43,23 @@ public class PetShopRepositorio {
 
 		return false;
 	}
-
+	public String listar() {
+	    if (animais.isEmpty()) {
+	        return "";
+	    }
+	    StringBuilder sb = new StringBuilder();
+	    for (Animal a : animais) {
+	        sb.append(((Cachorro) a).exibirDados()).append("\n---\n");
+	    }
+	    return sb.toString();
+	}
 	public ArrayList<Animal> listarTodos() {
 		return animais;
 	}
 
 	/** Quantidade de animais cadastrados no repositório. */
 	public int quantidade() {
-		return 0;
-	}
-}
+		return animais.size();
+
+			}       		}
+	
