@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.ArrayList;
+
 public class TelaPetShop extends JFrame {
 
 	private final PetShopRepositorio repositorio = new PetShopRepositorio();
@@ -24,6 +26,7 @@ public class TelaPetShop extends JFrame {
 	private final JButton btnBuscar = new JButton("Buscar");
 	private final JButton btnAtualizar = new JButton("Atualizar");
 	private final JButton btnRemover = new JButton("Remover");
+	private final JButton btnListarTodos = new JButton("Listar");
 
 	// ── Construtor ─────────────────────────────────────────
 	public TelaPetShop() {
@@ -85,7 +88,7 @@ public class TelaPetShop extends JFrame {
 		painel.add(btnBuscar);
 		painel.add(btnAtualizar);
 		painel.add(btnRemover);
-
+        painel.add(btnListarTodos);
 		return painel;
 	}
 
@@ -151,7 +154,7 @@ public class TelaPetShop extends JFrame {
 			Animal encontrado = repositorio.buscar(nome);
 
 			if (encontrado != null) {
-				exibirTexto("Pet encontrado:\n\n" + encontrado.exibirDados());
+				exibirTexto("Pet encontrado:\n\n" + ((Cachorro) encontrado).exibirDados());
 			} else {
 				exibirTexto("Pet não encontrado.");
 			}
@@ -223,6 +226,14 @@ public class TelaPetShop extends JFrame {
 				exibirTexto("Pet não encontrado.");
 			}
 		});
+		btnListarTodos.addActionListener(e -> {
+		    String lista = repositorio.listar();
+		    if (lista.isEmpty()) {
+		        exibirTexto("Nenhum pet cadastrado.");
+		    } else {
+		        exibirTexto("Lista de pets:\n" +	lista);
+		    }
+		});
 	}
 
 	// ── Métodos auxiliares ─────────────────────────────────
@@ -239,5 +250,7 @@ public class TelaPetShop extends JFrame {
 
 		campNome.requestFocus();
 	}
+
+	
 }
 
